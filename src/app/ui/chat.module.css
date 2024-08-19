@@ -27,3 +27,14 @@
     padding-top: 45px;
   }
   
+  .logout{
+    width:20%;
+    background-color: white;
+    height: 5vh;
+    z-index: 2;
+  }
+
+
+  .logout button{
+    color: blue
+  }
