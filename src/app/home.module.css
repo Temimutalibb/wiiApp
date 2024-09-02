@@ -1,42 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-/*body {
+.body, .main {
   color: green;
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: whitesmoke;
     text-align: center;
     height: auto;
 
 }
-    */
-main{
+.main{
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   margin-top: 80px;
   margin-bottom: 50px;
 }
-main > div{
+.main > div{
   flex: 45%
 }
 .intro{
@@ -47,7 +24,7 @@ main > div{
   padding-top: 25px;
   padding-bottom: 21px
 }
-input{
+.input{
   display: block;
   width: 80%;
   padding:25px;
@@ -62,12 +39,12 @@ input{
   opacity: 1;
   font-weight: 500;
 }
-input:focus{
+.input:focus{
 border: 1px solid  rgb(var(--background-start-rgb));
 
 }
 
-/*form{
+.form{
   width:80%;
   margin: auto;
   background-color:  rgb(var(--background-start-rgb));
@@ -78,7 +55,7 @@ border: 1px solid  rgb(var(--background-start-rgb));
   padding-bottom: 21px
 }
 
-button{
+.button{
   display: block;
   background-color: grey;
   width: 50%;
@@ -90,12 +67,20 @@ button{
   opacity: 0.9;
   margin-bottom: 10px;
 }
-  */
+  
 .create{
   background-color: green;
   opacity: 0.9;
+  display: block;
+  width: 39%;
+  padding: 11px;
+  color:white;
+  font-size: 17px;
+  margin:auto;
+  text-align: center;
+  margin-bottom: 10px;
 }
-hr{
+.hr{
   padding: 11px
 }
 .appname{
@@ -120,29 +105,25 @@ hr{
 .childthree{
   text-align: right;
 }
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
 
-footer{
+.footer{
+  text-align:center ;
   margin-top: 50px;
   padding: 15px;
   background-color: rgb(var(--background-start-rgb));
 }
 
-footer span{
+.footer span{
   color: blue;
   font-style: italic;
 }
 
 @media screen and  (max-width :768px) {
-  main{
+  .main{
     display: block;
     gap: 10px;
   }
-  main > div{
+  .main > div{
     flex: block
   }
 

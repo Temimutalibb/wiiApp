@@ -1,12 +1,10 @@
-import { Suspense } from 'react';
-import CardWrapper from '../ui/dashboard/cards';
-import { CardSkeleton } from '../ui/skeletons';
-export default async function chat(){
- return (
+import Card from '../ui/dashboard/cards';
+export default  function Chat(){
+ return(
     <>
-     <Suspense fallback={<CardSkeleton />}>
-          <CardWrapper />
-        </Suspense>
-        </>
+    <Card/>
+    </>
  )
 }
+
+

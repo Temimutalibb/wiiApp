@@ -6,6 +6,7 @@ export function StartChart(){
     const[state,action, pending] = useFormState(authenticateChatUser, undefined)
     return(
         <>
+
         <form action ={action}>
             <div>
          <input type ="email" 
