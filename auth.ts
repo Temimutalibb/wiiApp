@@ -3,18 +3,20 @@ import { sql } from '@vercel/postgres';
 import bcrypt from 'bcrypt';
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+import { cookies } from 'next/headers';
 import { z } from 'zod';
 import { authConfig } from './auth.config';
 
-async function getUser(email: string): Promise<User | undefined> {
-    try {
+
+export async function getUser(email: string): Promise<User | undefined> {
+   try {
       const user = await sql<User>`SELECT * FROM users WHERE email=${email}`;
       return user.rows[0];
     } catch (error) {
-      console.error('Failed to fetch user:', error);
-      throw new Error('Failed to fetch user.');
+       console.error('Failed to fetch user:', error);
+       throw new Error('Failed to fetch user.');
     }
-  }
+}
    
 
 export const { auth, signIn, signOut } = NextAuth({
@@ -32,14 +34,25 @@ export const { auth, signIn, signOut } = NextAuth({
             if (!user) return null;
             const passwordsMatch = await bcrypt.compare(password, user.password);
            
-            if (passwordsMatch) return user;
-    }
+            if (passwordsMatch){
+               const cookieStore = cookies();
+               cookieStore.set('userEmail', email, {
+                path: '/',
+                sameSite: 'lax'
+                 })
 
-    console.log('Invalid credentials');
-    return null;
-},
-  }),
-],
+                 cookieStore.set('userId', user.id, {
+                  path: '/',
+                  sameSite: 'lax'
+                   })
+            return user;
+          }
+        }
+       console.log('Invalid credentials');
+       return null;
+    },
+    }),
+  ],
 });
 
 
