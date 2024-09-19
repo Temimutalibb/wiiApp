@@ -2,7 +2,7 @@ import { cookies } from "next/headers";
 import Navbar from "../ui/dashboard/navbar";
 
 export default function ChatLayout({
-    children, username
+    children
   }: {
     children: React.ReactNode, username:string
   }) {
