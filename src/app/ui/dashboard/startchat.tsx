@@ -15,8 +15,6 @@ export function StartChart(){
          placeholder='input user username or email'
          />
          </div>
-        
-         {state?.errors?.email && <p>{state.errors.email}</p>}
           <button className="bg-sky-500 hover:bg-sky-700 ..." aria-disabled={pending} type="submit">
           {pending ? 'Submitting...' : 'start chat'}
           </button>

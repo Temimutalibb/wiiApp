@@ -4,7 +4,7 @@ import Navbar from "../ui/dashboard/navbar";
 export default function ChatLayout({
     children
   }: {
-    children: React.ReactNode, username:string
+    children: React.ReactNode
   }) {
     const cookiesStore = cookies();
     const userEmail =  cookiesStore.get('userEmail')?.value;
