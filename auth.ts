@@ -52,5 +52,4 @@ export const { auth, signIn, signOut } = NextAuth({
       },
     }),
   ],
-  //secret: "6AZ1sVVk6SV6eONap2iLBNr2vWGhcfhew7IkwaoUt20=",
 });
